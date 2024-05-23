@@ -11,10 +11,10 @@ socket.addEventListener('message', (e) => {
   }
 
   const handlers = tickersHandlers.get(currency) ?? []
-  handlers.forEach((fn) => fn(newPrice))
+  handlers.forEach((fn: any) => fn(newPrice))
 })
 
-function sendToWebSocket(message) {
+function sendToWebSocket(message: object) {
   const stringifiedMessage = JSON.stringify(message)
 
   if (socket.readyState === WebSocket.OPEN) {
@@ -31,29 +31,27 @@ function sendToWebSocket(message) {
   )
 }
 
-function subscribeToTickerOnWs(ticker) {
+function subscribeToTickerOnWs(ticker: string) {
   sendToWebSocket({
     action: 'SubAdd',
     subs: [`5~CCCAGG~${ticker}~USD`]
   })
 }
 
-function unsubscribeFromTickerOnWs(ticker) {
+function unsubscribeFromTickerOnWs(ticker: string) {
   sendToWebSocket({
     action: 'SubRemove',
     subs: [`5~CCCAGG~${ticker}~USD`]
   })
 }
 
-export const subscribeToTicker = (ticker, cb) => {
+export const subscribeToTicker = (ticker: string, cb: any) => {
   const subscribers = tickersHandlers.get(ticker) || []
   tickersHandlers.set(ticker, [...subscribers, cb])
   subscribeToTickerOnWs(ticker)
 }
 
-export const unsubscribeFromTicker = (ticker) => {
+export const unsubscribeFromTicker = (ticker: string) => {
   tickersHandlers.delete(ticker)
   unsubscribeFromTickerOnWs(ticker)
 }
-
-window.tickersHandlers = tickersHandlers
