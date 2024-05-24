@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+$white: #ffffff;
+$blue-100: #c9f2fd;
+$blue-500: #1f127d;
+$purple-100: #444d76;
+$purple-200: #212c5e;
+$purple-300: #374793;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.app-wrapper {
+  min-height: 100vh;
+  background: rgb(24, 25, 66);
+  background: linear-gradient(11deg, rgba(24, 25, 66, 1) 0%, rgba(16, 40, 101, 1) 100%);
+}
+.header {
+  padding: 25px 0;
+
+  &__link {
+    color: $white;
+    margin: 0 5px;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+
+    &.router-link-active {
+      background: rgba(255, 255, 255, 0.15);
+    }
+  }
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.home {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100dvh - 69px);
+    padding: 0 0 70px 0;
+  }
+
+  &__title {
+    font-size: 40px;
+    color: $white;
+    margin-bottom: 0;
+  }
+
+  &__description {
+    color: $blue-100;
+  }
+  &__btn {
+    display: inline-block;
+    border: 2px solid $blue-100;
+    color: $blue-100;
+    padding: 10px 20px;
+    margin: 25px 0 0;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.2s linear;
+
+    &:hover {
+      background: $blue-100;
+      color: $blue-500;
+    }
+  }
+}
+
+.crypto {
+  padding: 0 0 50px;
+}
+
+.input {
+  height: 37px;
+  border-radius: 4px 0px 0px 4px;
+  border: 1px solid $blue-100;
+  background: transparent;
+  text-indent: 15px;
+  color: $blue-100;
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.btn {
+  border: 1px solid $blue-100;
+  color: $blue-500;
+  padding: 10px 20px;
+  border-radius: 0px 4px 4px 0px;
+  text-decoration: none;
+  transition: all 0.2s linear;
+  background-color: $blue-100;
+  cursor: pointer;
+
+  &:hover {
+    background: transparent;
+    color: $blue-100;
+  }
+}
+
+.tickers-section {
+  margin: 25px 0 0;
+}
+
+.tickers {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  &__item {
+    width: 30%;
+    border-radius: 15px;
+    border: 1px solid $purple-100;
+    background: $purple-200;
+    text-align: center;
+    color: $blue-100;
+    padding: 25px 5px;
+    margin: 5px;
+    cursor: pointer;
+
+    @media (min-width: 768px) {
+      width: 15%;
+      padding: 25px 15px;
+      margin: 7px;
+    }
+
+    &.active {
+      border: 1px solid $blue-100;
+      cursor: default;
+    }
+
+    &-title {
+      font-size: 16px;
+      text-transform: uppercase;
+      margin: 0 0 5px;
+
+      @media (min-width: 768px) {
+        font-size: 18px;
+      }
+    }
+
+    &-quote {
+      font-size: 12px;
+      margin-top: 0;
+
+      @media (min-width: 768px) {
+        font-size: 14px;
+      }
+    }
+    &-btn {
+      color: #ffffff;
+      margin: 0 5px;
+      text-decoration: none;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      border-radius: 3px;
+      margin: 15px 0 0;
+      box-shadow: none;
+      background: rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 10px;
+    }
+  }
+}
+
+.graph-section {
+  margin: 25px 0;
+}
+
+.graph {
+  display: flex;
+  align-items: end;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 5px;
+  border-radius: 4px;
+  height: 300px;
+
+  @media (min-width: 768px) {
+    height: 500px;
+  }
+
+  &__title {
+    color: white;
+  }
+
+  &__col {
+    width: 30px;
+    max-height: 300px;
+    background-color: $purple-300;
+    margin-right: 5px;
+
+    @media (min-width: 768px) {
+      max-height: 500px;
+    }
+  }
+}
+.add-section {
+  padding: 0 0 25px;
+  color: white;
+}
+
+.hr {
+  border-color: $purple-100;
+}

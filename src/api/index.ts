@@ -1,3 +1,4 @@
+// TODO Move API KEY to
 const API_KEY = 'd5f9b4d703cd6f1787b7689757b0bb8e57eb5a1ce203517f98d68cb2c569bd03'
 const AGGREGATE_INDEX = '5'
 
@@ -6,6 +7,7 @@ const socket = new WebSocket(`wss://streamer.cryptocompare.com/v2?api_key=${API_
 
 socket.addEventListener('message', (e) => {
   const { TYPE: type, FROMSYMBOL: currency, PRICE: newPrice } = JSON.parse(e.data)
+
   if (type !== AGGREGATE_INDEX || newPrice === undefined) {
     return
   }
